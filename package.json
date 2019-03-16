@@ -1,0 +1,24 @@
+{
+  "name": "2_LOGIN",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mariaventosa/login-system.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mariaventosa/login-system/issues"
+  },
+  "homepage": "https://github.com/mariaventosa/login-system#readme",
+  "dependencies": {
+    "bulma": "^0.7.4",
+    "express": "^4.16.4"
+  }
+}
