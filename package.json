@@ -18,7 +18,10 @@
   },
   "homepage": "https://github.com/mariaventosa/login-system#readme",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "bulma": "^0.7.4",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "pg": "^7.9.0",
+    "sequelize": "^5.1.0"
   }
 }
