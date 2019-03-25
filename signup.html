@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login</title>
+    <title>Sign up</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
     <!-- Bulma Version 0.7.4-->
@@ -19,34 +19,37 @@
             <div class="container has-text-centered">
                 <div class="column is-4 is-offset-4">
                     <h3 class="title has-text-grey">Welcome!</h3>
+                    <p class="subtitle has-text-grey">Please sign up to proceed</p>
                     <div class="box">
-                        <figure class="avatar">
-                            
-                        </figure>
-                        <form action="/login" method="post">
-                            <div class="field">
+                        <form action="/signup" method="post">
+
+                             <div class="field">
                                 <div class="control">
-                                    <input name="username" class="input" type="text" placeholder="Username" autofocus="">
+                                    <label>Username</label>
+                                    <input name="username" class="input" type="text" placeholder="" autofocus="">
                                 </div>
                             </div>
 
                             <div class="field">
                                 <div class="control">
-                                    <input name="password" class="input" type="password" placeholder="Password">
+                                    <label>Password</label>
+                                    <input name="password" class="input" type="password" placeholder="">
                                 </div>
                             </div>
-                            <!-- <div class="field">
+
+                            <div class="field">
+                              <div class="control">
                                 <label class="checkbox">
-                  <input type="checkbox">
-                  Remember me
-                </label>
-                            </div> -->
-                            <button class="button is-block is-info is-medium is-fullwidth">Login</button>
+                                  <input type="checkbox">
+                                  I agree to the <a href="#">terms and conditions</a>
+                                </label>
+                              </div>
+                            </div>
+
+                            <button class="button is-block is-info is-large is-fullwidth">Sign up</button>
                         </form>
                     </div>
-                     <p class="has-text-grey">
-                        <a href="/signup">Sign Up</a>
-                    </p>
+                   
                 </div>
             </div>
         </div>

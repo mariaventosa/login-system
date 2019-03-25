@@ -113,6 +113,27 @@ app.get('/home', (req, res) => {
     }
 });
 
+app.route('/signup')
+    .get(sessionChecker, (req, res) => {
+        res.sendFile(__dirname + '/signup.html');
+    })
+    .post((req, res) => {
+        console.log("creating user")
+        User.create({
+            username: req.body.username,
+            password: req.body.password
+        })
+        .then(user => {
+            console.log("going home");
+            req.session.user = user.dataValues;
+            res.redirect('/home');
+        })
+        .catch(error => {
+            console.log("error");
+            res.redirect('/signup');
+        });
+    });
+
 app.get('/logout', (req, res) => {
     if (req.session.user && req.cookies.user_sid) {
         res.clearCookie('user_sid');
