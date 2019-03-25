@@ -1,5 +1,10 @@
 # Login System - Web
- 
+
+Implementation: 
+Set up your database configuration (database, user, password and dialect) on loginSystem.js
+Set up html pages
+Run node loginSystem.js
+
 
 ## tools used
 - Node

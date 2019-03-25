@@ -1,3 +1,5 @@
+const loginSystem = require('./loginSystem');
+
 var express = require('express');
 var bodyParser = require('body-parser');
 
@@ -10,14 +12,20 @@ const Sequelize = require('sequelize');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 
+
 var app = express();
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cookieParser());
-var sequelize = new Sequelize('postgres://postgres@localhost:5432/auth-system');
+// var sequelize = new Sequelize('postgres://postgres@localhost:5432/auth-system');
+const sequelize = new Sequelize(loginSystem.database, loginSystem.user, loginSystem.password, {
+  host: loginSystem.host,
+  dialect: 'postgres'
+});
 
+// user model defined
 const User = sequelize.define('users', {
   username: Sequelize.STRING,
   password: Sequelize.STRING
@@ -32,9 +40,10 @@ User.prototype.validPassword = function (password) {
     }
 }
 
+// creation of table
 sequelize.sync()
     .then(() => console.log('users table has been successfully created, if one doesn\'t exist'))
-    .catch(error => console.log('This error occured', error));
+    .catch(error => console.log('Error occured:', error));
 
 
 
@@ -101,7 +110,7 @@ app.post('/login', function (req, res) {
 //     // var name = req.body.username + ' ' + req.body.password;
 });
 
-// route for user's dashboard
+
 app.get('/home', (req, res) => {
     if (req.session.user && req.cookies.user_sid) {
         res.sendFile(__dirname + '/home.html');
@@ -149,3 +158,4 @@ app.get('/logout', (req, res) => {
 const server = app.listen(3000, () => {
   console.log(`Express running on port ${server.address().port}`);
 }); 
+
